@@ -1,9 +1,46 @@
 window.onload = function(){
+    
+    function handleError(jqXHR, textStatus, error){
+        console.log(error);
+    }
   /* global $ */ 
+    $.ajax({
+    type: "GET",
+    url: "AJAX/tweets.json",
+    success:  cbTweets,
+    error: handleError
+});
 
+function cbTweets(data) {
+    console.log(data);
 
+       $.ajax({
+    type: "GET",
+    url: "AJAX/friends.json",
+    success: cbFriends,
+    error: handleError
+    });
+    
+      }
+        
+    
+    function cbFriends(data) {
+    console.log(data);
 
+       $.ajax({
+    type: "GET",
+    url: "AJAX/videos.json",
+    success:  function(data){
+        console.log(data);
+        
+    },
+        error: handleError
+    
+    });
+    }
 };
+
+
 
 
 // READY STATES 
