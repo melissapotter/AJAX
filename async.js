@@ -18,7 +18,7 @@ window.onload = function(){
     });
   }
   
-  var promise = get("AJAX/tweets.json");
+  var promise = get("tweets.json");
   promise.then(function(tweets){
     console.log(tweets);
   });
